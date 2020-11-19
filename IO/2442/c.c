@@ -10,7 +10,7 @@ int		main(void) {
 		j = 0;
 		while (j++ < cnt - i - 1)
 			printf(" ");
-		while (j++ <= cnt)
+		while (j++ <= cnt + i)
 			printf("*");
 		printf("\n");
 		i++;
