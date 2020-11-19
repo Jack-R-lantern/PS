@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
 
 int     main(void) {
     int     cnt;
@@ -9,11 +8,9 @@ int     main(void) {
     i = 0;
     while (i < cnt) {
         j = 0;
-        while (j++ <= i)
-            printf("*");
-        while (j++ <= 2 * cnt - 1 - i)
+        while (j++ < cnt - i - 1)
             printf(" ");
-        while (j++ <= 2 * cnt + 1)
+        while (j++ <= cnt)
             printf("*");
         printf("\n");
         i++;
@@ -21,14 +18,11 @@ int     main(void) {
     i = cnt - 2;
     while (i >= 0) {
         j = 0;
-         while (j++ <= i)
-            printf("*");
-        while (j++ <= 2 * cnt - 1 - i)
+        while (j++ < cnt -i - 1)
             printf(" ");
-        while (j++ <= 2 * cnt + 1)
+        while (j++ <= cnt)
             printf("*");
         printf("\n");
         i--;
     }
-    return (0);
 }

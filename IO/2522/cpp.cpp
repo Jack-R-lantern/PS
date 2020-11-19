@@ -9,11 +9,9 @@ int     main(void) {
     i = 0;
     while (i < cnt) {
         j = 0;
-        while (j++ <= i)
-            cout << '*';
-        while (j++ <= 2 * cnt - 1 - i)
+        while (j++ < cnt - i - 1)
             cout << ' ';
-        while (j++ <= 2 * cnt + 1)
+        while (j++ <= cnt)
             cout << '*';
         cout << endl;
         i++;
@@ -21,14 +19,11 @@ int     main(void) {
     i = cnt - 2;
     while (i >= 0) {
         j = 0;
-         while (j++ <= i)
-            cout << '*';
-        while (j++ <= 2 * cnt - 1 - i)
+        while (j++ < cnt -i - 1)
             cout << ' ';
-        while (j++ <= 2 * cnt + 1)
+        while (j++ <= cnt)
             cout << '*';
-        cout << endl;;
+        cout << endl;
         i--;
     }
-    return (0);
 }
