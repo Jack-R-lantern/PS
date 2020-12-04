@@ -7,7 +7,7 @@ int		main(void) {
 	int		i, val;
 	int		cnt = 0;
 	scanf("%d %d", &N, &P);
-	vector<vector<int>>	v(N);
+	vector<vector<int>>	v(6);
 	while (N--) {
 		scanf("%d %d", &i, &val);
 		if(v[i-1].empty()) {
