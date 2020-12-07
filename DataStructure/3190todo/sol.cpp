@@ -3,5 +3,5 @@
 int		main(void) {
 	int		N;
 
-	scanf("%d", &N);
+	scanf("%d", &N);2
 }

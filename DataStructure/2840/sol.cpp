@@ -11,18 +11,17 @@ int		main(void) {
 	vector<char>	v(N, '?');
 	while (K--) {
 		scanf("%d %c", &S, &c);
-		if (alpha[c -'A'] != 0) {
+		i = (i + S) % N;
+		if (v[i] == '?' && !alpha[c - 'A']) {
+			alpha[c - 'A']++;
+			v[i] = c;
+		}
+		else if (v[i] == c && alpha[c - 'A'])
+			continue;
+		else{
 			printf("!\n");
 			return (0);
 		}
-		alpha[c - 'A']++;
-		i += S;
-		i = i >= 8 ? i - 8 : i;
-		if (v[i] != '?' && v[i] != c) {
-			printf("!\n");
-			return (0);
-		}
-		v[i] = c;
 	}
 	while (N--) {
 		printf("%c", v[i]);
