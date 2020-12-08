@@ -1,43 +1,43 @@
-#include <cstdio>
-#include <list>
+#include <iostream>
+#include <string>
+#include <stack>
 using namespace std;
 
-char	str[100001];
+stack<char>		st;
 
-list<char>				dq;
-list<char>::iterator	iter;
 int		main(void) {
-	char	CMD, c;
-	int		M, i = 0;
+	ios_base::sync_with_stdio(false);
+	cin.tie(nullptr);
+	cout.tie(nullptr);
 
-	scanf("%s", str);
-	while (*(str + i)) {
-		dq.push_back(*(str + i));
-		i++;
-	}
-	scanf ("%d", &M);
-	iter = dq.end();
+	string		str;
+	cin >> str;
+	int M;
+	char CMD;
+	cin >> M;
 	while (M--) {
-		scanf(" %c", &CMD);
-		if (CMD == 'L') {
-			if (iter != dq.begin())
-				iter--;
+		cin >> CMD;
+		if (CMD == 'L' && str.size()) {
+			st.push(str.back());
+			str.pop_back();
 		}
-		else if (CMD == 'D') {
-			if (iter != dq.end())
-				iter++;
+		else if (CMD == 'D' && st.size()) {
+			str.push_back(st.top());
+			st.pop();
 		}
-		else if (CMD == 'B') {
-			if (iter != dq.begin())
-				dq.erase((--iter)++);
+		else if (CMD == 'B' && str.size()) {
+			str.pop_back();
 		}
 		else if (CMD == 'P') {
-			scanf(" %c", &c);
-			dq.insert(iter, c);
+			char c;
+			cin >> c;
+			str.push_back(c);
 		}
 	}
-	for (auto ch : dq)
-		printf("%c", ch);
-	printf("\n");
+	while (!st.empty()) {
+		str.push_back(st.top());
+		st.pop();
+	}
+	cout << str << '\n';
 	return (0);
 }
