@@ -28,6 +28,19 @@ int		bfs(int idx) {
 	return sum;
 }
 
+int		dfs(int idx) {
+	int sum = 1;
+	visit[idx] = true;
+	for (int i=0;i<v[idx].size();i++) {
+		if (visit[v[idx][i]] == false) {
+			visit[v[idx][i]] = true;
+			sum += dfs(v[idx][i]);
+		}
+	}
+	return sum;
+}
+
+
 int 	main(void) {
 	ios_base::sync_with_stdio(false);
 	cin.tie(nullptr);
@@ -45,7 +58,7 @@ int 	main(void) {
 	for (int i=1;i<=N;i++) {
 		int temp;
 		memset(visit, 0, sizeof(visit));
-		temp = bfs(i);
+		temp = dfs(i);
 		if (MAX < temp) {
 			result.clear();
 			result.push_back(i);
