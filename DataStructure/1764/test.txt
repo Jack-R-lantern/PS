@@ -1,0 +1,29 @@
+input:
+1 1
+a
+b
+result:
+0
+
+input:
+1 2
+a
+a
+b
+result:
+1
+a
+
+input:
+3 3
+acd
+ab
+ac
+ab
+ac
+acd
+result:
+3
+ab
+ac
+acd
